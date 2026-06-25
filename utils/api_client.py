@@ -13,15 +13,20 @@ class ReqresClient:
     def __init__(self, base_url):
         self.base_url = base_url.rstrip("/")
         self.logger = get_logger(self.__class__.__name__)
+        api_key = os.getenv("REQRES_API_KEY")
+
+        if not api_key:
+            raise ValueError(
+                "REQRES_API_KEY is required. Configure it in a local .env file "
+                "or as a GitHub Actions repository secret."
+            )
+
         self.session = requests.Session()
         self.session.headers.update(
             {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
-                "x-api-key": os.getenv(
-                    "REQRES_API_KEY",
-                    "free_user_3EKJqFeUD8Y2tnBD7IoxTE7Cttr",
-                ),
+                "x-api-key": api_key,
             }
         )
 
