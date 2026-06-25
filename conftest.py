@@ -45,8 +45,11 @@ def driver():
         options.add_argument("--headless=new")
         options.add_argument("--window-size=1920,1080")
 
-    service = Service(ChromeDriverManager().install())
-    browser = webdriver.Chrome(service=service, options=options)
+    if os.getenv("CI") == "true":
+        browser = webdriver.Chrome(options=options)
+    else:
+        service = Service(ChromeDriverManager().install())
+        browser = webdriver.Chrome(service=service, options=options)
     browser.implicitly_wait(0)
 
     yield browser
