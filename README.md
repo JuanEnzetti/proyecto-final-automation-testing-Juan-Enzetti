@@ -1,18 +1,16 @@
 # Framework de Automatizacion QA - Juan Cruz Enzetti
 
-Proyecto final integrador de automatizacion de pruebas construido con Python, Selenium WebDriver, Pytest y Requests. Incluye pruebas UI sobre Sauce Demo y pruebas API sobre Reqres.
+Proyecto final para Talento Tech de automatizacion de pruebas con Python, Selenium WebDriver, Pytest y API Requests. Incluye pruebas UI sobre Sauce Demo y pruebas API sobre Reqres.
 
 ## Tecnologias Utilizadas
 
-- Python 3.10+
+- Python 3.10
 - Selenium WebDriver
 - WebDriver Manager
 - Pytest
 - Requests
 - Pytest HTML
 - Pytest xdist
-- Pytest rerunfailures
-- Python dotenv
 
 ## Estructura del Framework
 
@@ -68,7 +66,7 @@ pip install -r requirements.txt
 La API key de Reqres puede configurarse en un archivo `.env`:
 
 ```text
-REQRES_API_KEY=free_user_3EKJqFeUD8Y2tnBD7IoxTE7Cttr
+REQRES_API_KEY= API
 ```
 
 Si no existe `.env`, el framework usa la API key provista como valor por defecto.
@@ -117,17 +115,9 @@ Formato de captura:
 test_name_YYYYMMDD_HHMMSS.png
 ```
 
-## Ejemplo de Salida
+## Practicas Implementadas
 
-```text
-tests/ui/test_login.py::test_successful_login PASSED
-tests/ui/test_login.py::test_invalid_login_shows_error PASSED
-tests/api/test_users_api.py::test_get_single_user PASSED
-```
-
-## Buenas Practicas Implementadas
-
-- Page Object Model para separar tests de detalles Selenium.
+- Page Object Model para separar tests de detalles en Selenium.
 - Locators centralizados en cada page object.
 - Explicit waits con Expected Conditions.
 - Tests sin locators ni acciones Selenium directas.
